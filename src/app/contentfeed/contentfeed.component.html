@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<div class="body">
+    <form (ngSubmit)="datafeed(f)" #f="ngForm">
+    <div class="row">
+        <div class="full-body">
+            <div class="card">
+                <!-- <input [(ngModel)]="posts.title" type="text" name="title" placeholder="TITLE HEADING"> -->
+                <textarea class="feed-textarea" [(ngModel)]="posts.description" name="desc" placeholder=" Write something here.. "></textarea>
+            </div>
+            <button type="submit" class="btnstyle">Post</button>
+            <div class="card" *ngFor="let feed of feedsArr.reverse()">
+                <!-- <h2 class="feed-username"> {{ feed.title }} </h2> -->
+                <!-- <div class="feed-desc"> {{ feed.username }} </div> -->
+                <div class="feed-desc"> {{ feed.description }} </div>
+                <div class="feed-date">
+                    <h5>Posted on:  {{ feed.post_time | date:'medium' }}</h5> 
+                </div>
+            </div>
+        </div>
+        <!-- <div class="rightcolumn">
+            <div class="card">
+                <h2>About Me</h2>
+                <div class="fakeimg" style="height:100px;">Image</div>
+                <p>Some text..</p>
+            </div>
+            <div class="card">
+                <h3>Follow Me</h3>
+                <p>Some text..</p>
+            </div>
+        </div> -->
+    </div>
+    <!-- 
+    <div class="footer">
+        <h2>Footer</h2>
+    </div> -->
+
+</form>
+</div>

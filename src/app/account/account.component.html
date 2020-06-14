@@ -1,0 +1,105 @@
+<app-header></app-header>
+<div class="body">
+<form (ngSubmit)="userprofile(f)" #f="ngForm">
+    <div class="main">
+        <div class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first_name">First name</label>
+                                <input [(ngModel)]="profile.first_name" type="text" class="form-input" name="first_name" ngModel pattern="[a-zA-Z ]*" #first_name="ngModel" required/>
+                                <span *ngIf="!first_name.valid && first_name.touched">Please enter valid information!!</span> 
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last name</label>
+                                <input [(ngModel)]="profile.last_name" type="text" class="form-input" name="last_name" pattern="[a-zA-Z ]*" #last_name="ngModel" required/>
+                                <span *ngIf="!last_name.valid && last_name.touched">Please enter valid information!!</span> 
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first_name">Father Name</label>
+                                <input [(ngModel)]="profile.father_name" type="text" class="form-input" name="father_name" pattern="[a-zA-Z ]*" #Father="ngModel" required/>
+                                <span *ngIf="!Father.valid && Father.touched">Please enter valid information!!</span> 
+                            </div>
+                            <div class="form-group">
+                                <label for="first_name">Mother Name</label>
+                                <input [(ngModel)]="profile.mother_name" type="text" class="form-input" name="mother_name" pattern="[a-zA-Z ]*" #Mother="ngModel" required/>
+                                <span *ngIf="!Mother.valid && Mother.touched">Please enter valid information!!</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group form-icon">
+                                <label for="birth_date">Birth date</label>
+                                <input [(ngModel)]="profile.birthdate" type="date" class="form-input" name="birth_date" id="birth_date" placeholder="YYYY-MM-DD" #birthdate="ngModel" required/>
+                                <span *ngIf="!birthdate.valid && birthdate.touched">Please enter valid information!!</span>
+                            </div>
+
+                            <!-- <mat-radio-group>
+                                <label for="gender">Gender</label>
+                                <div class="form-flex">
+                                    <mat-radio-button [(ngModel)]="profile.gender" value="m" name="gender" (change)="radioChangeHandler($event)"></mat-radio-button>
+                                    <label for="male">Male</label>
+                                    <mat-radio-button [(ngModel)]="profile.gender" value="f" name="gender" (change)="radioChangeHandler($event)"></mat-radio-button>
+                                    <label for="female">Female</label>
+                                </div>
+                            </mat-radio-group> -->
+
+                            <div class="form-radio">
+                                <label for="gender">Gender</label>
+                                <div class="form-flex">
+                                    <input [(ngModel)]="profile.gender" type="radio" name="gender" value="m" id="male" checked/>
+                                    <label for="male">Male</label>
+    
+                                    <input [(ngModel)]="profile.gender" type="radio" name="gender" value="f" id="female"/>
+                                    <label for="female">Female</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="phone_number ">Phone number</label>
+                            <input [(ngModel)]="profile.phoneno" type="number" class="form-input" name="phone_number" id="phone_number" #phone_number="ngModel" />
+                            <span *ngIf="!phone_number.valid && phone_number.touched">Please enter valid information!!</span>
+                        </div>
+                        <div class="form-group ">
+                            <label for="email ">Email</label>
+                            <input [(ngModel)]="profile.email" type="email" class="form-input" name="email" id="email" required email #email="ngModel" required/>
+                            <span *ngIf="!email.valid && email.touched">Please enter valid email!!</span> 
+                        </div>
+                        <div class="form-row ">
+                            <div class="form-group ">
+                                <label for="city ">City</label>
+                                <input [(ngModel)]="profile.city" type="text" class="form-input" pattern="[a-zA-Z ]*" name="city" id="city" #city="ngModel" required/>
+                                <span *ngIf="!city.valid && city.touched">Please enter valid information!!</span>
+                            </div>
+                            <div class="form-group ">
+                                <label for="country ">state</label>
+                                <input [(ngModel)]="profile.state" type="text" class="form-input" name="state" pattern="[a-zA-Z ]*" #state="ngModel" required/>
+                                <span *ngIf="!state.valid && state.touched">Please enter valid information!!</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="country ">Country</label>
+                            <input [(ngModel)]="profile.country" type="text" class="form-input" name="country" 
+                            pattern="[a-zA-Z ]*" #country="ngModel" required/>
+                            <span *ngIf="!country.valid && country.touched">Please enter valid information!!</span>
+                        </div>
+                        <div class="form-group ">
+                            <label for="phone_number ">Zipcode</label>
+                            <input [(ngModel)]="profile.pincode" type="number" class="form-input" name="Zipcode " id="phone_number" #phone_number="ngModel" required/>
+                            <span *ngIf="!phone_number.valid && phone_number.touched">Please enter valid information!!</span>
+                        </div>
+                        <div class="form-group ">
+                            <button type="submit" class="form-submit" [disabled]="!f.valid" [ngClass]="!f.valid ? 'disabled' : ''">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
