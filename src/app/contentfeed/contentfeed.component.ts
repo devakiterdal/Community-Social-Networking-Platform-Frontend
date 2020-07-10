@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-contentfeed',
@@ -10,13 +12,11 @@ import { NgForm } from '@angular/forms';
 })
 export class ContentfeedComponent implements OnInit {
   posts;
-  // feedsArr = [ {username:'Manu', description: 'Test Feed', date: '2017-05-25 05:30'},
-  //             {username:'Max', description: 'Test Feed', date: '2017-05-25 05:30'},
-  //             {username:'Mike', description: 'Test Feed', date: '2017-05-25 05:30'}];
-
+  selectedfile: File = null;
+  userdata;
   feedsArr = [];
 
-  constructor( private userService:UserService ) { }
+  constructor( private userService:UserService, private http:HttpClient ) { }
 
   ngOnInit(): void {
 
@@ -24,34 +24,49 @@ export class ContentfeedComponent implements OnInit {
 
     this.posts = {
       description:'',
-      // post_time:'',
-      username:'devakiterdal', //get it from local storage
+      image:'',
+      username:'', //get it from local storage
       isActive: true
     };
   }
   
   // To Create Post
-  datafeed(form:NgForm){
-    // alert("Please complete your profile!!");
-    this.userService.feeddata(this.posts).subscribe(
+  datafeed(form : NgForm){
+    let data = this.onUpload();
+    this.userService.feeddata(data).subscribe(
       response =>{
         alert('Posted Successfully!!!');
+        this.fetchpost();
+        form.reset();
         },
         error => {
           alert('Not Posted');
-      }
-    )
+      });
+    }
 
-    this.fetchpost();
+  onFileSelect(event){
+    this.selectedfile = <File> event.target.files[0];
+    console.log(event);
+  }
+
+  onUpload(){
+    let fd = new FormData();
+    fd.append('description', this.posts.description );
+    fd.append('isActive', 'true' );
+    fd.append('image', this.selectedfile, this.selectedfile.name);
+    fd.append('username', this.userService.getUsername())
+    return fd;
   }
 
   fetchpost(){
+    this.feedsArr.splice(0,this.feedsArr.length);
     this.userService.fetchfeed().subscribe(
       response =>{
         for(let item in response) {
+          // console.log(item);
+          response[item].image = 'http://127.0.0.1:8000'+response[item].image;
           this.feedsArr.push(response[item]);
         }
-        console.log(this.feedsArr);
       });
-  }
+    }
 }

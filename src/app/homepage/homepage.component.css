@@ -65,3 +65,33 @@ a {
     font-weight: 350;
     text-decoration: none;
 }
+
+
+.charts {
+    /* height: 100px;
+    width: 40%; */
+    /* position: relative; */
+    margin-top: 10%;
+    display: block;
+}
+
+.piechart {
+    width:42%;
+    display: inline-block;
+}
+
+#piechart {
+    width: 100% !important;
+    height:100% !important;
+}
+
+.donutchart {
+    width:42%;
+    padding-left: 10%;
+    display: inline-block;
+}
+
+#donutchart {
+    width: 100% !important;
+    height:100% !important;
+}

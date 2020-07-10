@@ -184,12 +184,12 @@ h2 {
     color: #222;
     font-weight: 600;
     font-family: 'Montserrat';
-    background: -webkit-linear-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
+    /* background: -webkit-linear-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
     background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
     background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
     background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
-    padding: 115px 0;
+    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%); */
+    padding: 2% 0;
 }
 
 a {
@@ -214,7 +214,7 @@ a {
 
 .signup-form {
     padding: 58px 50px 0px 50px;
-    height: 652px;
+    /* height: 652px; */
     overflow-y: auto;
 }
 
@@ -271,6 +271,7 @@ input {
     font-size: 14px;
     font-weight: bold;
     font-family: 'Montserrat';
+    color : grey;
 }
 
 input:focus {
@@ -554,4 +555,7 @@ input.error {
 
 input.ng-invalid.ng-touched{
     border: 1px solid red;
+}
+.profile-img{
+    width: 50%;
 }

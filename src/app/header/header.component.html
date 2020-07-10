@@ -1,17 +1,19 @@
-<div class="nav">
+<div class="header-title">    <span>    Community Census </span>  </div>  
+<div class="nav nav-header">
     <div class="ul">
         <div class="li">
-            <div class="current">
+            <!-- <div class="current"> -->
 
-                <a class="active" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
-                <a class="rt" href="#">contact us</a>
-                <a class="rt" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</a>
-                <a class="rt" [routerLink]="['/signup']" routerLinkActive="router-link-active">Register</a>
-                <a class="rt" [routerLink]="['/feed']" routerLinkActive="router-link-active">Posts</a>
-                <a class="rt" [routerLink]="['']" routerLinkActive="router-link-active">MyPosts</a>
-                <a class="rt" [routerLink]="['/profile']" routerLinkActive="router-link-active">Profile</a>
+                <a class="lt menus" [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }" >Home</a>
+        </div>      
+        <div class="li rt">    <a class="menus" [routerLink]="['/']" routerLinkActive="" *ngIf="isLoggedIn" (click)="logout()">Logout</a> </div>        
+        <div class="li rt">    <a class="menus" [routerLink]="['/login']" routerLinkActive="router-link-active" *ngIf="!isLoggedIn">Login</a> </div>
+        <div class="li rt">    <a class="menus" [routerLink]="['/signup']" routerLinkActive="router-link-active" *ngIf="!isLoggedIn">Register</a>   </div>                        
+        <div class="li rt">    <a class="menus" [routerLink]="['/my-profile']" routerLinkActive="router-link-active" *ngIf="isLoggedIn">Profile</a> </div>
+        <div class="li rt">    <a class="menus" [routerLink]="['/my-posts']" routerLinkActive="router-link-active" *ngIf="isLoggedIn">MyPosts</a>   </div>
+        <div class="li rt">    <a class="menus" [routerLink]="['/posts']" routerLinkActive="router-link-active" *ngIf="isLoggedIn">Posts</a>    </div>
                 <!-- <a class="rt" [routerLink]="['/contactus']" routerLinkActive="router-link-active">CONTACTUS</a> -->
-            </div>
-        </div>
+            <!-- </div> -->
+        
     </div>
 </div>

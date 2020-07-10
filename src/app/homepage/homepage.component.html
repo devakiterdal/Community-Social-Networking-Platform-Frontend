@@ -5,29 +5,20 @@
 
 <body>
     <app-header></app-header>
-    <div class="bgimg">
+    <!-- <div class="bgimg">
         <div class="centered">
             <h1>FOLKS BUNCH</h1>
             <hr style="margin:auto;width:60%">
             <h1 style="font-size: 25px;font-style: normal;font-weight:lighter;text-align: center;">stay connected</h1>
         </div>
-
-        
-        <!-- <div class="nav">
-            <p>
-            <div class="ul">
-                <div class="li">
-                    <div class="current">
-
-                        <a class="active" [routerLink]="['']" routerLinkActive="router-link-active">Home</a>
-                        <a class="rt" href="">contact us</a>
-                        <a class="rt" [routerLink]="['login']" routerLinkActive="router-link-active">Login</a>
-                        <a class="rt" [routerLink]="['signup']" routerLinkActive="router-link-active">Register</a>
-                        <a class="rt" [routerLink]="['feed']" routerLinkActive="router-link-active">Feed</a>
-                        <a class="rt" [routerLink]="['/contactus']" routerLinkActive="router-link-active">CONTACTUS</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+    </div> -->
+    <div class="charts">
+        <div class="piechart">
+            <canvas id="piechart"></canvas>
+        </div>
+            
+        <div class="donutchart">
+            <canvas id="donutchart"></canvas>
+        </div>
     </div>
 </body>

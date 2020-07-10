@@ -28,15 +28,15 @@ h1 {
     background-color: rgba(253, 253, 253, 0.78);
     align-items: center;
     display: block;
-    padding: 16px;
+    padding: 5px;
     border-top: 1px solid lavender;
     border-bottom: 1px solid lavender;
 }
 
 .nav a.active {
-    text-align: left;
+    /* text-align: left;
     background-color: #a18cd1;
-    color: white;
+    color: white; */
 }
 
 .nav .rt {
@@ -48,20 +48,45 @@ h1 {
 }
 
 .nav a:hover {
-    border-bottom: 3px solid black;
     color: black;
 }
 
 .ul {
     list-style: none;
     padding: 0;
+    display: block;
 }
 
 a {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     color: gray;
     padding: 10px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 350;
     text-decoration: none;
 }
+
+.menus {
+    text-align: left;
+}
+
+.router-link-active {
+    color: black;
+    border-bottom: 3px solid black;
+}
+
+.li {
+    display: inline-block;
+}
+
+.header-title {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* .nav-header {
+    background-color: #a18cd1;
+    color: white;
+} */

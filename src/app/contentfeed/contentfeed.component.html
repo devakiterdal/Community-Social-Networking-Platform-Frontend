@@ -1,39 +1,27 @@
 <app-header></app-header>
 
 <div class="body">
-    <form (ngSubmit)="datafeed(f)" #f="ngForm">
+    <form (ngSubmit)="datafeed(f)" #f="ngForm" entype="multipart/form-data">
     <div class="row">
         <div class="full-body">
             <div class="card">
-                <!-- <input [(ngModel)]="posts.title" type="text" name="title" placeholder="TITLE HEADING"> -->
                 <textarea class="feed-textarea" [(ngModel)]="posts.description" name="desc" placeholder=" Write something here.. "></textarea>
+                <input type="file" [(ngModel)]="posts.image" name="image" (change)="onFileSelect($event)" #fileInput>
             </div>
             <button type="submit" class="btnstyle">Post</button>
+            <span *ngIf="feedsArr.length  == 0">
+                There are no posts to display at the moment.Please do create new posts! 
+            </span>
             <div class="card" *ngFor="let feed of feedsArr.reverse()">
-                <!-- <h2 class="feed-username"> {{ feed.title }} </h2> -->
-                <!-- <div class="feed-desc"> {{ feed.username }} </div> -->
-                <div class="feed-desc"> {{ feed.description }} </div>
-                <div class="feed-date">
-                    <h5>Posted on:  {{ feed.post_time | date:'medium' }}</h5> 
+                <div class="posts-img-container">
+                    <img class="posts-img" src="{{ feed.image }}">
                 </div>
+                    
+                <div class="feed-desc"> {{ feed.description }} </div>
+                <h5>User:  {{ feed.username }}</h5>
+                <h5>Last updates on:  {{ feed.post_time | date:'medium' }}</h5> 
             </div>
         </div>
-        <!-- <div class="rightcolumn">
-            <div class="card">
-                <h2>About Me</h2>
-                <div class="fakeimg" style="height:100px;">Image</div>
-                <p>Some text..</p>
-            </div>
-            <div class="card">
-                <h3>Follow Me</h3>
-                <p>Some text..</p>
-            </div>
-        </div> -->
     </div>
-    <!-- 
-    <div class="footer">
-        <h2>Footer</h2>
-    </div> -->
-
 </form>
 </div>

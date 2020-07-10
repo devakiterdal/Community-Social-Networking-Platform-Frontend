@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MatRadioModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { LoginRouterComponent } from './login-router/login-router.component';
+import { MypostsComponent } from './myposts/myposts.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LoginRouterComponent } from './login-router/login-router.component';
     routingComponents,
     HeaderComponent,
     LoginRouterComponent,
+    MypostsComponent,
   ],
   imports: [
     BrowserModule,

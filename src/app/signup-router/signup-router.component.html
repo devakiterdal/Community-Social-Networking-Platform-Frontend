@@ -1,4 +1,5 @@
 <app-header></app-header>
+<br /><br />
 <div class="body">
 <form (ngSubmit)="registerUser(f)" #f="ngForm">
     <div class="page-wrapper bg-gra-01 font-poppins" style="padding-top: 1rem;">
@@ -24,7 +25,7 @@
                     </div>
                     <div class="input-group">
                         <input [(ngModel)]="register.email" name="email" class="input--style-3" type="email" #email="ngModel" placeholder="Email" required>
-                        <span *ngIf="!email.valid && email.touched">Email already exist/invalid!!</span> 
+                        <span *ngIf="!email.valid && email.touched">Please enter valid email!</span> 
                     </div>
                     <div class="input-group">
                         <input [(ngModel)]="register.password" name="password" class="input--style-3" type="password" pattern="[a-zA-Z0-9]*" maxlength="8" minlength="8" #password="ngModel" placeholder="Password(must be of 8 charcters)" required>

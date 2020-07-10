@@ -117,21 +117,11 @@ textarea {
 
 .feed-textarea {
     padding: 1rem;
-    width: 100%;
-    height: 60px;
-    
+}
+.posts-img{
+    width:100%;
 }
 
-.posts-img {
-    width: 100%;
+.btn-seperator{
+    border-right: 2px solid #f1f1f1;
 }
-
-.select-img {
-    background: grey;
-    border-radius: 12px;
-    color: #FFFFFF;
-}
-
-/* .posts-img-container{
-    width: 80%;
-} */

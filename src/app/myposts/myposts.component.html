@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="body">
+<span *ngIf="MyPostsArr.length  == 0">
+    There are no posts to display at the moment.Please do create new posts! 
+</span>
+<div class="full-body" *ngFor="let feed of MyPostsArr.reverse(); let index=index">
+
+    <div class="card" *ngIf='editPostFlag[index]'>
+        <textarea class="feed-textarea" [(ngModel)]="feed.description" name="desc" placeholder=" Write something here.. "></textarea>
+        <input type="file" [(ngModel)]="feed.image" name="image" (change)="onFileSelect($event)" #fileInput>
+    </div>
+
+    <div class="card" *ngIf='!editPostFlag[index]'>
+        <img class="posts-img"  src="{{ feed.image }}">
+        <div class="feed-desc"> {{ feed.description }} </div>
+        <h5>User: {{ feed.username }} </h5> 
+        <h5>Last updates on:  {{ feed.post_time | date:'medium' }}</h5> 
+    </div>
+    
+    <button type="submit" class="btnstyle btn-seperator" (click)="toggleEditPostFlag(index)" *ngIf='!editPostFlag[index]'> Edit  </button>
+    <button type="submit" class="btnstyle btn-seperator" *ngIf='editPostFlag[index]' (click)="updatePost(feed.post_id,feed.description,feed.image);toggleEditPostFlag(index);this.fetchMyPost(username)"> Update</button>
+    <button type="submit" class="btnstyle" (click)="deletePost(feed.post_id)"> Delete   </button>
+</div>
+</div>

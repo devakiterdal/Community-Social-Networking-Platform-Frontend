@@ -25,9 +25,10 @@ login;
     // this.userService.fetchfeed();
     this.userService.userLogin(this.login).subscribe(
         response => {
+          localStorage.setItem('user',JSON.stringify(response));
           // this.message('Successfully logged in!');
           // alert('Successfully logged in! ')
-          this.router.navigate(['../feed']);
+          this.router.navigate(['../posts']);
         },
         error => {
           alert('Invalid Credentials');
